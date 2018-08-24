@@ -316,13 +316,6 @@ With arg N, insert N newlines."
 
 (require-package 'highlight-escape-sequences)
 (add-hook 'after-init-hook 'hes-mode)
-
 
-(require-package 'guide-key)
-(setq guide-key/guide-key-sequence t)
-(add-hook 'after-init-hook 'guide-key-mode)
-(after-load 'guide-key
-  (diminish 'guide-key-mode))
-
 
 (provide 'init-editing-utils)
