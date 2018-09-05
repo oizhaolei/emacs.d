@@ -2,7 +2,7 @@
 
 ;;; Code:
 (global-set-key (kbd "C-x f") 'projectile-find-file)
-(global-set-key (kbd "C-c C-w") 'ivy-wgrep-change-to-wgrep-mode)
+(global-set-key (kbd "C-c C-q") 'ivy-wgrep-change-to-wgrep-mode)
 
 (require-package 'ag)
 
