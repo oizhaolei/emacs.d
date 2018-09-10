@@ -37,6 +37,10 @@
 (require-package 'neotree)
 (global-set-key (kbd "C-c C-n") 'neotree-toggle)
 
+;; crux
+(require-package 'crux)
+(global-set-key (kbd "C-c o") 'crux-open-with)
+
 ;;; tide
 (defun setup-tide-mode ()
   (interactive)
