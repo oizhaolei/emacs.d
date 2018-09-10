@@ -33,6 +33,10 @@
 (require-package 'yasnippet-snippets)
 (global-set-key (kbd "C-c C-t") 'yas-describe-tables)
 
+;; neotree
+(require-package 'neotree)
+(global-set-key (kbd "C-c C-n") 'neotree-toggle)
+
 ;;; tide
 (defun setup-tide-mode ()
   (interactive)
