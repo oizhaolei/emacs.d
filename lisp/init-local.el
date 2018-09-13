@@ -41,6 +41,12 @@
 (require-package 'crux)
 (global-set-key (kbd "C-c o") 'crux-open-with)
 
+;; ivy
+(global-set-key (kbd "C-c s") 'swiper)
+;;(global-set-key (kbd "C-c k") 'counsel-ag)
+(global-set-key (kbd "C-c l") 'counsel-locate)
+(global-set-key (kbd "C-c C-r") 'ivy-resume)
+
 ;;; tide
 (defun setup-tide-mode ()
   (interactive)
