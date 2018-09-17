@@ -40,41 +40,31 @@
 ;; crux
 (require-package 'crux)
 (global-set-key (kbd "C-c o") 'crux-open-with)
+(global-set-key (kbd "C-c C-e") 'crux-eval-and-replace)
 
 ;; ivy
+(require-package 'ivy)
+;;(require-package 'hydra-ivy)
 (global-set-key (kbd "C-c s") 'swiper)
 ;;(global-set-key (kbd "C-c k") 'counsel-ag)
 (global-set-key (kbd "C-c l") 'counsel-locate)
 (global-set-key (kbd "C-c C-r") 'ivy-resume)
 
-;;; tide
-(defun setup-tide-mode ()
+
+;;; lsp
+(require 'lsp-javascript-typescript)
+
+(add-hook 'js-mode-hook #'lsp-javascript-typescript-enable)
+(add-hook 'typescript-mode-hook #'lsp-javascript-typescript-enable) ;; for typescript support
+(add-hook 'js3-mode-hook #'lsp-javascript-typescript-enable) ;; for js3-mode support
+(add-hook 'rjsx-mode #'lsp-javascript-typescript-enable) ;; for rjsx-mode support
+
+;;
+(defun kill-all-buffers ()
+  "Kill all buffers."
   (interactive)
-  (tide-setup)
-  (flycheck-mode +1)
-  (setq flycheck-check-syntax-automatically '(save mode-enabled))
-  (eldoc-mode +1)
-  (tide-hl-identifier-mode +1)
-  ;; company is an optional dependency. You have to
-  ;; install it separately via package-install
-  ;; `M-x package-install [ret] company`
-  (company-mode +1))
+  (dolist (buffer (buffer-list))
+    (kill-buffer buffer)))
 
-;; aligns annotation to the right hand side
-(setq company-tooltip-align-annotations t)
-
-;; formats the buffer before saving
-(add-hook 'before-save-hook 'tide-format-before-save)
-
-(add-hook 'typescript-mode-hook #'setup-tide-mode)
-
-;;(require 'web-mode)
-(add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
-(add-hook 'web-mode-hook
-          (lambda ()
-            (when (string-equal "tsx" (file-name-extension buffer-file-name))
-              (setup-tide-mode))))
-;; enable typescript-tslint checker
-(flycheck-add-mode 'typescript-tslint 'web-mode)
 
 (provide 'init-local)
