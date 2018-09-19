@@ -1,5 +1,9 @@
 ;;; customize for purcell/emacs.d
 
+
+(set-frame-position (selected-frame) 80 0)
+(set-frame-size (selected-frame) 260 83)
+
 ;;; Code:
 (global-set-key (kbd "C-x f") 'projectile-find-file)
 (global-set-key (kbd "C-c C-q") 'ivy-wgrep-change-to-wgrep-mode)
@@ -44,7 +48,6 @@
 
 ;; ivy
 (require-package 'ivy)
-;;(require-package 'hydra-ivy)
 (global-set-key (kbd "C-c s") 'swiper)
 ;;(global-set-key (kbd "C-c k") 'counsel-ag)
 (global-set-key (kbd "C-c l") 'counsel-locate)
