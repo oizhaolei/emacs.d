@@ -1,6 +1,6 @@
 ;;; customize for purcell/emacs.d
 
-
+(desktop-save-mode nil)
 (set-frame-position (selected-frame) 80 0)
 (set-frame-size (selected-frame) 260 83)
 
@@ -55,12 +55,12 @@
 
 
 ;;; lsp
-(require 'lsp-javascript-typescript)
+;; (require 'lsp-javascript-typescript)
 
-(add-hook 'js-mode-hook #'lsp-javascript-typescript-enable)
-(add-hook 'typescript-mode-hook #'lsp-javascript-typescript-enable) ;; for typescript support
-(add-hook 'js3-mode-hook #'lsp-javascript-typescript-enable) ;; for js3-mode support
-(add-hook 'rjsx-mode #'lsp-javascript-typescript-enable) ;; for rjsx-mode support
+;; (add-hook 'js-mode-hook #'lsp-javascript-typescript-enable)
+;; (add-hook 'typescript-mode-hook #'lsp-javascript-typescript-enable) ;; for typescript support
+;; (add-hook 'js3-mode-hook #'lsp-javascript-typescript-enable) ;; for js3-mode support
+;; (add-hook 'rjsx-mode #'lsp-javascript-typescript-enable) ;; for rjsx-mode support
 
 ;;
 (defun kill-all-buffers ()
